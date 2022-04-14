@@ -195,16 +195,66 @@ console.log('Returns dishes where its Serving Count is an Even Number: ', servin
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
 
+function problemFive(){
+    let results = dishes.filter(function(element){
+        if(element.ingredients[0] === "tomato" && element.ingredients[1] === "cheese"){
+            return true;
+        }
+        else{
+            return false;
+        }})
+    return results;
+}
+
+let ingredentTomatoCheese = problemFive();
+console.log('Returns the list of dishes with tomato and cheese as ingredients: ', ingredentTomatoCheese);
+
 //6a. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
+
+function problemSixA(){
+    let namesOfCusines = dishes.map(function(element){
+        return element.cuisine;
+    })
+    return namesOfCusines;
+}
+
+let listOfCusines = problemSixA();
+console.log('This is an array that displays the names of the cuisine types (i.e. Italian, Mexican, etc.): ', listOfCusines);
+
 // BONUS: (come back to this after finishing all)
 //6b. Use the filter method to eliminate duplicates, leaving only distinct values in the array
 
+
+
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
-//Map 
+//Map
+
+function problemSeven(){
+    let cuisineAndDishName = dishes.map(function(element){
+        return element.cuisine + " " + element.name;
+    })
+    return cuisineAndDishName;
+}
+
+let disheNameIncludesCuisine = problemSeven();
+console.log('This displays an array with Cuisine Type appended to Dish Name (i.e. Italian Pizza): ', disheNameIncludesCuisine);
 
 //8. Create a function that will append the cuisine type to the start of the dish's name. Then, return only the Vegetarian dish objects. So this function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
+
+function problemEight(){
+    let vegeWithCuisineAndName = dishes.map(function(element){
+        element.name = element.cuisine + " " + element.name;
+        return element;
+    }).filter(function(element) {
+        return element.cuisine === "Vegetarian";
+    })
+    return vegeWithCuisineAndName;
+}
+
+let vegeDishesCuisineAndName = problemEight();
+console.log('This array displays the dish objects (11-13) with cuisine appended with dish name and only those that are vegetarian cuisines: ', vegeDishesCuisineAndName);
 
 
 //BONUS
